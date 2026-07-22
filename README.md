@@ -1,9 +1,5 @@
 # Pet sprites
 
-One folder per species. A species appears in the dashboard picker as soon as it
-has at least one stage sprite; stages fall back to ASCII art individually, so a
-half-finished set is fine.
-
 ```
 sprites/
   rottweiler/          # "Rottweiler" — chibi, the default
