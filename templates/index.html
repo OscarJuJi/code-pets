@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codepet</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="dashboard">
+    <header class="topbar">
+      <h1>🐾 Codepet</h1>
+      <div class="topbar-actions">
+        <a id="tunnel-link" class="tunnel-link hidden" target="_blank" rel="noopener"
+           title="URL pública del túnel — ábrela en el celular"></a>
+        <span id="repos-watched" class="muted"></span>
+        <button id="scan-btn" class="ghost-btn" type="button">Escanear ahora</button>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card pet-card">
+        <div id="fx-layer" class="fx-layer" aria-hidden="true"></div>
+        <div id="pet-body" class="pet-body">
+          <pre id="pet-art" class="pet-art" aria-label="mascota"></pre>
+          <img id="pet-sprite" class="pet-sprite hidden" alt="mascota">
+        </div>
+        <h2 id="pet-name" title="Doble clic para renombrar"></h2>
+        <p id="pet-stage" class="secondary"></p>
+        <p id="pet-mood" class="mood-text"></p>
+        <div class="xp-bar" role="progressbar" aria-label="XP hacia la siguiente etapa">
+          <div id="xp-fill" class="xp-fill"></div>
+        </div>
+        <p id="xp-label" class="muted small"></p>
+        <p id="streak" class="streak"></p>
+        <p id="decay-note" class="decay-note hidden"></p>
+        <div id="species-picker" class="species-picker" role="group" aria-label="Especie de la mascota"></div>
+      </article>
+
+      <article class="card tiles-card">
+        <div class="tile">
+          <span id="tile-tokens" class="tile-value">—</span>
+          <span class="tile-label">tokens de Claude hoy</span>
+        </div>
+        <div class="tile">
+          <span id="tile-commits" class="tile-value">—</span>
+          <span class="tile-label">commits hoy</span>
+        </div>
+        <div class="tile">
+          <span id="tile-files" class="tile-value">—</span>
+          <span class="tile-label">archivos tocados hoy</span>
+        </div>
+        <div class="tile">
+          <span id="tile-github" class="tile-value tile-github">—</span>
+          <span class="tile-label">GitHub hoy</span>
+        </div>
+      </article>
+
+      <article class="card chart-card">
+        <h3>Tokens de Claude por día</h3>
+        <div class="chart-box"><canvas id="tokens-chart"></canvas></div>
+      </article>
+
+      <article class="card chart-card">
+        <h3>Commits por día</h3>
+        <div class="chart-box"><canvas id="commits-chart"></canvas></div>
+      </article>
+
+      <article class="card chart-card">
+        <h3>Archivos por lenguaje (hoy)</h3>
+        <div class="chart-box"><canvas id="languages-chart"></canvas></div>
+        <p id="languages-empty" class="muted small hidden">Sin archivos de código tocados hoy.</p>
+      </article>
+
+      <article class="card habits-card">
+        <h3>Registrar hábito</h3>
+        <div id="habit-buttons" class="habit-buttons"></div>
+      </article>
+
+      <article class="card feed-card">
+        <h3>Actividad reciente</h3>
+        <ul id="feed" class="feed"></ul>
+      </article>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='chart.umd.js') }}"></script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
